@@ -1,3 +1,49 @@
 from django.shortcuts import render
+from django.http import HttpResponse
+import random
 
-# Create your views here.
+def index(request):
+    context = {}
+    return render (request, "base/index.html", context)
+
+def result(request):
+    type=request.GET["type"]
+    level=request.GET["level"]
+        
+    
+    korean = {'Jogeum' : ['GomTangEee', 'Myunga', 'JangWon'], 'Jotna' : ['BonChon', 'BBQ', 'Chugajib']}
+    american = {'Jogeum' : ['Ihop', 'SevenEleven', 'Mcdonald'], 'Jotna' : ['GoldenCorral', 'FiveGuys','SmokeDatGrass']}
+    other = {'Jogeum' : ['Pho', 'Redo', 'PandaExpress'], 'Jotna' : ['ManassasHibachi', 'ChantillyHibachi', 'Oolalala']}
+
+    
+    n = type
+    while True:
+        if n == '':
+            print('DumbFuck type korean or american or other')
+            n = type
+        else: 
+            x = level
+            while True:
+        
+                if n == 'korean' and x == 'jogeum' :
+                    result=random.choice(korean['Jogeum'])
+                    break
+                elif n == 'korean' and x == 'jotna' :
+                    result=random.choice(korean['Jotna'])
+                    break
+                elif n == 'american' and x == 'jogeum' :
+                    result=random.choice(american['Jogeum'])
+                    break
+                elif n == 'american' and x == 'jotna' :
+                    result=random.choice(american['Jotna'])
+                    break
+                elif n == 'other' and x == 'jogeum' :
+                    result=random.choice(other['Jogeum'])
+                    break
+                elif n == 'other' and x == 'jotna' :
+                    result=random.choice(other['Jotna'])
+                    break
+            break
+
+
+    return HttpResponse(result)
