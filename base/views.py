@@ -3,7 +3,9 @@ from django.http import HttpResponse
 import random
 
 def index(request):
-    context = {}
+    list = ["http://1.soompi.io/wp-content/uploads/2015/02/IU.jpg"]
+    img = random.choice(list)
+    context = {'src': img}
     return render (request, "base/index.html", context)
 
 def result(request):
