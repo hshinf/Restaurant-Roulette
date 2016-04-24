@@ -1,5 +1,39 @@
-<form action="/results">
-	<input type="text" name="type">
-	<input type="text" name="level">
-	<input type="submit" value="Submit">
-</form>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Restaurant Roulette</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <img src="http://1.soompi.io/wp-content/uploads/2015/02/IU.jpg">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <p>Hello offa! What you want to eat??</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-8 col-xs-offset-2">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <form action="/results">
+                                        <input type="radio" name="type" value="korean"> Korean
+                                        <input type="radio" name="type" value="american"> American
+                                        <input type="radio" name="type" value="other"> Other
+                                        <br>
+                                        <input type="radio" name="level" value="jogeum"> Jogeum
+                                        <input type="radio" name="level" value="jotna"> Jotna
+                                        <br>
+                                        <input type="submit" value="Submit">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

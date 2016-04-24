@@ -9,22 +9,19 @@ def index(request):
 def result(request):
     type=request.GET["type"]
     level=request.GET["level"]
-        
-    
+
     korean = {'Jogeum' : ['GomTangEee', 'Myunga', 'JangWon'], 'Jotna' : ['BonChon', 'BBQ', 'Chugajib']}
     american = {'Jogeum' : ['Ihop', 'SevenEleven', 'Mcdonald'], 'Jotna' : ['GoldenCorral', 'FiveGuys','SmokeDatGrass']}
     other = {'Jogeum' : ['Pho', 'Redo', 'PandaExpress'], 'Jotna' : ['ManassasHibachi', 'ChantillyHibachi', 'Oolalala']}
 
-    
     n = type
     while True:
         if n == '':
             print('DumbFuck type korean or american or other')
             n = type
-        else: 
+        else:
             x = level
             while True:
-        
                 if n == 'korean' and x == 'jogeum' :
                     result=random.choice(korean['Jogeum'])
                     break
@@ -45,5 +42,5 @@ def result(request):
                     break
             break
 
-
-    return HttpResponse(result)
+    context = {'restaurant': result}
+    return render(request, "base/result.html", context)
